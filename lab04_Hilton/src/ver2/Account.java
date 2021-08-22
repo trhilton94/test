@@ -7,12 +7,6 @@ public class Account {
 	private double balance; //New comment
 	private String name;
 	
-	// Constructor 
-
-	public Account (double balance) { 
-		this("Unknown", balance);  // How does this work? this modifier in front of the parentheses?
-	}  
-	
 	public Account (String name, double balance) { 
 		this.name = name; 
 		this.balance = balance; 
