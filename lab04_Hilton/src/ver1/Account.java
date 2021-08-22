@@ -1,21 +1,35 @@
-package ver1;
+package ver2;
 
 public class Account { 
 
 	// Instance variable, only available inside this class. 
 
-	private double balance; 
+	private double balance; //New comment
+	private String name;
 	
 	// Constructor 
 
-	public Account (double initBalance) { 
-		balance = initBalance; 
+	public Account (double balance) { 
+		this("Unknown", balance);  // How does this work? this modifier in front of the parentheses?
+	}  
+	
+	public Account (String name, double balance) { 
+		this.name = name; 
+		this.balance = balance; 
 	} 
 
 	// A "getter" method that simply returns the balance. 
 
 	public double getBalance() { 
 		return balance; 
+	} 
+	
+	public String getName() { 
+		return name; 
+		} 
+
+	public void setName (String name) { 
+		this.name = name; 
 	} 
 
 	// A method that increases the balance by amount 
@@ -34,10 +48,16 @@ public class Account {
 		} 
 	} 
 	
+	public void mergeAccount(Account a) {  // Does the "this" account check against all other names in the Account class to see if it matches the specific account name given?
+		if (this.getName().equals(a.getName())) { 
+		this.balance += a.getBalance(); 
+		} 
+	} 
+	
 	@Override 
 	
 	public String toString() { 
-		String msg = "balance=$" + balance; 
+		String msg = "name=" + name + ", balance=$" + balance; 
 		return msg; 
 	} 
 	
